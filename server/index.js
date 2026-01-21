@@ -15,7 +15,10 @@ const app = express();
 const PORT = process.env.PORT || 8000;
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: true,
+  credentials: true
+}));
 
 app.get("/", (req, res) => {
   res.status(200).json({ message: "Server is running", success: true });
