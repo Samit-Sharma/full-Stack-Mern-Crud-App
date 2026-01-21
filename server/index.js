@@ -7,7 +7,9 @@ const authMiddleWare = require("./middleware/auth.middleware");
 const cors = require("cors");
 
 // database connection
-databaseConnection();
+databaseConnection().catch((err) => {
+  console.log("Database connection error:", err);
+});
 
 const app = express();
 const PORT = process.env.PORT || 8000;
